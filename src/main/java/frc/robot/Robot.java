@@ -18,5 +18,26 @@ public class Robot extends ProceduralRobot {
   @Override
   public void autonomousProcedure() throws InterruptedException {
     
+    Joystick m_controller = new Joystick(0);
+    
+    Position position = new Position();
+    
+    while (true) {
+      if (m_controller.getRawButton(1) == true) {
+        position.driveUp();
+      }
+      
+      if (m_controller.getRawButton(4) == true) {
+        position.driveRight();
+      }
+
+      if (m_controller.getRawButton(3) == true) {
+        position.driveLeft();
+      }
+
+      if (m_controller.getRawButton(2) == true) {
+        position.driveDown();
+      }
+    }
   }
 }
